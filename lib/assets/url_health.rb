@@ -31,9 +31,18 @@ class UrlHealth
     @_path
   end
 
+  def code= code 
+    @_code = code 
+  end
+
+  def code 
+    @_code 
+  end
+
   def valid?
     invalid = [ 404 ]
-    return not invalid.include? self.code
+    is_invalid = invalid.include? self.code
+    return ! is_invalid 
   end
 
 end
