@@ -1,0 +1,63 @@
+doctype
+html[lang="en"]
+  head
+    meta[http-equiv="content-type" content="text/html; charset=UTF-8"]
+    meta[charset="utf-8"]
+    meta[http-equiv="X-UA-Compatible" content="IE=edge"]
+    meta[name="viewport" content="width=device-width, initial-scale=1.0"]
+    meta[name="description" content=""]
+    meta[name="author" content=""]
+    link[rel="shortcut icon" href="http://getbootstrap.com/docs-assets/ico/favicon.png"]
+    title
+      | JDeen - URL Health Check
+    = stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true
+    = javascript_include_tag "application", "data-turbolinks-track" => true
+    = csrf_meta_tags
+    
+  body
+    .container
+      .navbar.navbar-default[role="navigation"]
+        .navbar-header
+          button.navbar-toggle[type="button" data-toggle="collapse" data-target=".navbar-collapse"]
+            span.sr-only
+              | Toggle navigation
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar
+          a.navbar-brand[href="/"]
+            | URL Check
+        .navbar-collapse.collapse
+          ul.nav.navbar-nav
+            li class="#{'active' if params[:controller] == 'site' && params[:action] == 'index'}"
+              = link_to "Home", controller: 'site', action: 'index'
+            li class="#{'active' if params[:controller] == 'site' && params[:action] == 'contact'}"
+              = link_to "Contact", controller: 'site', action: 'contact'
+            /li.dropdown
+            /  a.dropdown-toggle[href="#" data-toggle="dropdown"]
+            /    | Dropdown 
+            /    b.caret
+            /  ul.dropdown-menu
+            /    li
+            /      a[href="#"]
+            /        | Action
+            /    li
+            /      a[href="#"]
+            /        | Another action
+            /    li
+            /      a[href="#"]
+            /        | Something else here
+            /    li.divider
+            /    li.dropdown-header
+            /      | Nav header
+            /    li
+            /      a[href="#"]
+            /        | Separated link
+            /    li
+            /      a[href="#"]
+            /        | One more separated link
+          ul.nav.navbar-nav.navbar-right
+            li.active
+              a[href="http://www.jdeen.com"]
+                | Developer - Ziyan Junaideen
+      
+      = yield
