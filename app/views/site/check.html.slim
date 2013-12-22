@@ -10,5 +10,6 @@ table.table.table-striped.table-bordered.table-hover
     - @health_list.each_with_index do | url, id |
       tr
         td = id + 1
-        td = url.path
+        td 
+          a href="#{url.path}" = url.path 
         td = url.valid?
